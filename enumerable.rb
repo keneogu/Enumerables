@@ -77,4 +77,17 @@ module Enumerable
     result
   end
 
+  # my_count Enumberable method
+  def my_count(para = nil)
+    counter = 0
+    if block_given?
+      my_each { |val| counter += 1 if yield(val) }
+    elsif para
+      my_each { |val| counter += 1 if para == val }
+    else
+      my_each { counter += 1 }
+    end
+    counter
+  end
+
 end
