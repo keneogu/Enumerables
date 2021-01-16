@@ -49,4 +49,18 @@ module Enumerable
     true
   end
 
+  # my_any Enumberable method
+  def my_any?(argue = nil)
+    result = false
+    if block_given?
+      my_each { |val| return true if yield(val) }
+    elsif argue
+      my_each { |val| return true if argue === val } # rubocop:disable Style/CaseEquality
+    else
+      my_each { |ele| return true if ele }
+    end
+
+    false
+  end
+
 end
