@@ -37,4 +37,16 @@ module Enumerable
     array
   end
 
+  # my_all Enumberable method
+  def my_all?(argument = nil)
+    if argument
+      my_each { |element| return false unless argument === element } # rubocop:disable Style/CaseEquality
+    elsif block_given?
+      my_each { |element| return false unless yield(element) }
+    else
+      my_each { |element| return false unless element }
+    end
+    true
+  end
+
 end
