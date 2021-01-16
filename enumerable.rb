@@ -105,4 +105,20 @@ module Enumerable
     array1
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  def my_inject(arg = nil, sym = nil)
+    if (arg && sym.nil?) && (arg.is_a?(Symbol) || arg.is_a?(String))
+      sym = arg
+      arg = nil
+    end
+
+    if !block_given? && sym
+      to_a.my_each { |item| arg = arg ? arg.send(sym, item) : item }
+    else
+      to_a.my_each { |item| arg = arg ? yield(arg, item) : item }
+    end
+
+    arg
+  end
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 end
