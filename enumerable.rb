@@ -25,4 +25,16 @@ module Enumerable
 
     self
   end
+
+  # my_select Enumberable method
+  def my_select
+    return to_enum unless block_given?
+
+    array = []
+
+    my_each { |num| array << num if yield(num) }
+
+    array
+  end
+
 end
