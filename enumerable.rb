@@ -90,4 +90,19 @@ module Enumerable
     counter
   end
 
+  # my_count map method
+  def my_map(proc = nil)
+    return enum_for unless block_given?
+
+    array1 = []
+
+    if proc
+      my_each { |element| array1 << proc.call(element) }
+    else
+      my_each { |element| array1 << yield(element) }
+    end
+
+    array1
+  end
+
 end
