@@ -12,4 +12,17 @@ module Enumerable
     end
     self
   end
+
+  # my_each_with_index Enumberable method
+  def my_each_with_index
+    return to_enum unless block_given?
+
+    index = 0
+    my_each do |item|
+      yield(item, index)
+      index += 1
+    end
+
+    self
+  end
 end
