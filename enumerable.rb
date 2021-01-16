@@ -63,4 +63,18 @@ module Enumerable
     false
   end
 
+  # my_none Enumberable method
+  def my_none?(argu = nil)
+    result = true
+    if block_given?
+      my_each { |val| return false if yield(val) }
+    end
+    if argu
+      my_each { |val| return false if argu === val } # rubocop:disable Style/CaseEquality
+    else
+      my_each { |val| return false if val == true }
+    end
+    result
+  end
+
 end
