@@ -63,3 +63,15 @@ puts((0..5).my_map { |i| i * i })
 my_proc = proc { |num| num < 10 }
 p [18, 22, 5, 6].my_map(my_proc) { |num| num > 20 } # => true true false false
 puts ''
+
+puts '9.--------my_inject--------'
+puts((1..5).my_inject { |sum, n| sum + n }) #=> 15
+puts((1..5).my_inject(1) { |product, n| product * n }) #=> 120
+puts((1..5).my_inject(1, :+)) #=> 16
+longest =
+  %w[cardiology anatomy neurology].my_inject do |memo, word|
+    memo.length > word.length ? memo : word
+  end
+puts longest #=> "cardiology"
+
+puts multiply_els([2, 4, 5]) #=> 40
