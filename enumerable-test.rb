@@ -46,3 +46,11 @@ p [nil].my_none? #=> true
 p [nil, false].my_none? #=> true
 p [nil, false, true].my_none? #=> false
 puts ''
+
+# ..7...
+puts '7.-------my_count-------'
+puts [1, 2, 4, 2].my_count #=> 4
+puts [1, 2, 4, 2].my_count(2) #=> 2
+puts([0, 1, 2, 3].count { |element| element > 1 }) # => 2
+p((1..3).my_count) #=> 3
+puts ''
