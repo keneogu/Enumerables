@@ -15,3 +15,12 @@ puts ''
 puts '3.-------my_select-------'
 p(%w[Sharon Leo Leila Brian Arun].my_select { |friend| friend != 'Brian' })
 puts ''
+
+# ..4...
+puts '4.-------my_all-------'
+puts(%w[ant bear cat].my_all? { |word| word.length >= 3 }) #=> true
+puts(%w[ant bear cat].my_all? { |word| word.length >= 4 }) #=> false
+puts %w[ant bear cat].my_all?(/t/) #=> false
+puts [1, 2i, 3.14].my_all?(Numeric) #=> true
+puts [].my_all? #=> true
+puts ''
