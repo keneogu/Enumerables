@@ -60,7 +60,7 @@ module Enumerable
       my_each { |ele| return true if ele }
     end
 
-    false
+    result
   end
 
   # my_none Enumberable method
