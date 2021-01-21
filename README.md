@@ -50,4 +50,3 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Hat tip to Microverse for their `README` template.
-
