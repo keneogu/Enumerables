@@ -37,7 +37,7 @@ describe Enumerable do
     let(:arr) { [1, 2, 3, 4, 5, 6] }
 
     it 'should return even numbers' do
-      expect(arr.my_select { |num| num.even? }).to eql([2, 4, 6])
+      expect(arr.my_select(&:even?)).to eql([2, 4, 6])
     end
 
     it 'should return numbers greater than 3' do
@@ -49,7 +49,7 @@ describe Enumerable do
     let(:arr) { [1, 2, 3, 4, 5, 6] }
 
     it 'should return true if all the numbers are positive' do
-      expect(arr.my_all? { |num| num.positive? }).to be true
+      expect(arr.my_all?(&:positive?)).to be true
     end
 
     it 'checks if all the element in the array is an integer' do
@@ -61,7 +61,7 @@ describe Enumerable do
     let(:arr) { [1, 2, 3, 4] }
 
     it 'checks if any of the number is a negative' do
-      expect(arr.my_any? { |num| num.negative? }).to eql(false)
+      expect(arr.my_any?(&:negative?)).to eql(false)
     end
 
     it 'checks if any of the number is greater than 3' do
@@ -81,7 +81,7 @@ describe Enumerable do
 
   describe '#my_count' do
     it 'counts all the even numbers' do
-      expect([1, 2, 3, 4].my_count { |num| num.even? }).to eql(2)
+      expect([1, 2, 3, 4].my_count(&:even?)).to eql(2)
     end
 
     it 'counts all 3 in the array' do
