@@ -97,4 +97,23 @@ describe Enumerable do
       expect(%w[Frank Ben].my_map { |word| word.prepend('Hi ') }).to eql(['Hi Frank', 'Hi Ben'])
     end
   end
+
+  describe '#my_inject' do
+    it 'returns sum of item' do
+      expect([1, 2, 3, 4].my_inject { |a, b| a + b }).to eql(10)
+    end
+
+    it 'returns times two the multiple of the items' do
+      expect([1, 2, 3, 4].my_inject(2, :*)).to eql(48)
+    end
+
+    it 'should work with block' do
+      longest =
+        %w[cardiology anatomy neurology].my_inject do |memo, word|
+          memo.length > word.length ? memo : word
+        end
+
+      expect(longest).to eq('cardiology')
+    end
+  end
 end
