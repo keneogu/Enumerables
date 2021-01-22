@@ -116,4 +116,10 @@ describe Enumerable do
       expect(longest).to eq('cardiology')
     end
   end
+
+  describe '#multiply_els' do
+    it 'should muliply all the items' do
+      expect(multiply_els([2, 4, 5])).to eq(40)
+    end
+  end
 end
