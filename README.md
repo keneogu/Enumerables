@@ -31,6 +31,13 @@ To get a local copy up and running follow these simple example steps.
 - `git pull origin enumerable-features`
 - Run `ruby enumerable.rb`
 
+## How to Test
+
+1. Install RSpec by typing "gem install rspec" in your terminal.
+2. cd into the project directory.
+3. initiate RSpec using "rspec --init".
+4. run the test using "rspec" command.
+
 ## Authors
 
 👤 **Ken**
