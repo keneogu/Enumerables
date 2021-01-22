@@ -78,4 +78,14 @@ describe Enumerable do
       expect([1, 3, 5].my_none?(&:even?)).to eql(true)
     end
   end
+
+  describe '#my_count' do
+    it 'counts all the even numbers' do
+      expect([1, 2, 3, 4].my_count { |num| num.even? }).to eql(2)
+    end
+
+    it 'counts all 3 in the array' do
+      expect([3, 2, 3, 4, 5].my_count(3)).to eql(2)
+    end
+  end
 end
