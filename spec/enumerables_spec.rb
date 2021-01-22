@@ -56,4 +56,26 @@ describe Enumerable do
       expect([1, 2i, 'John'].my_all?(Numeric)).to be false
     end
   end
+
+  describe '#my_any?' do
+    let(:arr) { [1, 2, 3, 4] }
+
+    it 'checks if any of the number is a negative' do
+      expect(arr.my_any? { |num| num.negative? }).to eql(false)
+    end
+
+    it 'checks if any of the number is greater than 3' do
+      expect(arr.my_any? { |num| num > 3 }).to eql(true)
+    end
+  end
+
+  describe '#my_none?' do
+    it 'should return false if none of the word length is >= 4' do
+      expect(%w[ant bear cat].my_none? { |word| word.length >= 4 }).to be false
+    end
+
+    it 'Check if none of the items are even' do
+      expect([1, 3, 5].my_none?(&:even?)).to eql(true)
+    end
+  end
 end
