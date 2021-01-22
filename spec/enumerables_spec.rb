@@ -88,4 +88,13 @@ describe Enumerable do
       expect([3, 2, 3, 4, 5].my_count(3)).to eql(2)
     end
   end
+
+  describe '#my_map' do
+    it 'Add 1 to all items' do
+      expect([1, 2, 3, 4].my_map { |item| item + 1 }).to eql([2, 3, 4, 5])
+    end
+    it 'Add Hi to all items' do
+      expect(%w[Frank Ben].my_map { |word| word.prepend('Hi ') }).to eql(['Hi Frank', 'Hi Ben'])
+    end
+  end
 end
